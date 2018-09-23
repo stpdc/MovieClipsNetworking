@@ -9,13 +9,17 @@
 import UIKit
 import AVFoundation
 
-class MovieClipsNetworking {
+public class MovieClipsNetworking {
 
-    class func image(for url: URL, completion: @escaping (UIImage?) -> ()) {
+    public class func clips(url: URL, completion: @escaping (Error?, [MCClip]?) -> ()) {
+        MCNetworking.shared.getClips(url: url, completion: completion)
+    }
+    
+    public class func image(for url: URL, completion: @escaping (UIImage?) -> ()) {
         MCCaching.shared.image(for: url, completion: completion)
     }
     
-    class func video(for url: URL, completion: @escaping (AVPlayerItem?) -> ()) {
+    public class func video(for url: URL, completion: @escaping (AVPlayerItem?) -> ()) {
         MCCaching.shared.video(for: url, completion: completion)
     }
     

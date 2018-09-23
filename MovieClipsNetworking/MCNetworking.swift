@@ -8,8 +8,10 @@
 
 import UIKit
 
-internal class MCNetworking: NSObject {
+class MCNetworking: NSObject {
 
+    static let shared = MCNetworking()
+    
     private let session = URLSession(configuration: .default)
     private var currentTast: URLSessionTask?
     
